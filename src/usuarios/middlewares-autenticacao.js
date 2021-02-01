@@ -1,7 +1,7 @@
 const passport = require('passport');
 
 module.exports = {
-  local: (req, res, next) => {
+  local(req, res, next) {
     passport.authenticate(
       'local',
       { session: false },
@@ -24,7 +24,7 @@ module.exports = {
     )(req, res, next);
   },
 
-  bearer: (req, res, next) => {
+  bearer(req, res, next) {
     passport.authenticate(
       'bearer',
       { session: false },
@@ -52,5 +52,5 @@ module.exports = {
         return next();
       }
     )(req, res, next);
-  }
+  },
 };
